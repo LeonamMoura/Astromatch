@@ -1,4 +1,4 @@
-# Astromatch
+# Labematch
 
 ## Stack
 Este é um projeto de front-end web feito utilizando React.js, CSS3, HTML5 e consumo de API;

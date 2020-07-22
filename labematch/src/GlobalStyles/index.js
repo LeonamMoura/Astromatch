@@ -33,11 +33,14 @@ export default createGlobalStyle`
     width: 100%;
     position: relative;
     padding: 0px 16px 0px 16px;
-    border-radius: 16px;
 
     img {
       width: 148px;
       height: 50px;
     }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    display: inline;
   }
 `

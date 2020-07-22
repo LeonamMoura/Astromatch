@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
-import { Container, CardPeople, ActionButtons } from "./styles"
+import { Container, ActionButtons } from "./styles"
 import Logo from "../../Assets/Images/logo.png"
+import CardPeople from "../../Components/CardPeople";
+import {Link} from 'react-router-dom'
 
 export default function HomePage() {
   const [people, setPeople] = useState({})
@@ -23,17 +25,23 @@ export default function HomePage() {
       <header>
         <span>voltar</span>
         <img src={Logo}/>
-        <span>Matchs</span>
+        
+        <Link to="/matchs">
+          <span>Matchs</span>
+        </Link>
       </header>
 
-      <CardPeople>
-        <img src={people.photo}/>
-        <h2>{people.name}</h2>
-      </CardPeople>
+      <CardPeople
+        key={people.id}
+        photo={people.photo}
+        name={people.name}
+        age={people.age}
+        bio={people.bio}
+      />
 
       <ActionButtons>
-        <button id="like" >♥</button>
-        <button id="deslike">X</button>
+        <button id="deslike"><h3>X</h3></button>
+        <button id="like" ><h3>♥</h3></button>
       </ActionButtons>
     </Container>
   )

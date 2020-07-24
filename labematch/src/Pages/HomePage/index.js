@@ -1,47 +1,90 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios"
 import { Container, ActionButtons } from "./styles"
 import Logo from "../../Assets/Images/logo.png"
 import CardPeople from "../../Components/CardPeople";
 import {Link} from 'react-router-dom'
+import IconMatchs from '../../Assets/Icons/icon-match.svg'
+import lottie from 'lottie-web'
+import { renderIntoDocument } from "react-dom/test-utils";
 
 export default function HomePage() {
   const [people, setPeople] = useState({})
+  const container = useRef(null)
+
 
   useEffect(() => {
     getPeoples()
+
   }, [])
+
+  lottie.loadAnimation({
+    container: container.current,
+    renderIntoDocument: 'svg',
+    loop: true,
+    autoplay: true,
+    animationData: require('../../Assets/Animations/loading.json')
+  })
 
   const getPeoples = () => {
     axios
-      .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonam-moura-mello/person`)
+      .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonam-moura/person`)
       .then((response) => {
         setPeople(response.data.profile)
       })
   }
 
+  const choosePerson = (e) => {
+    if (e) {
+      const body = {
+        id: people.id,
+        choice: true
+      }
+
+      axios
+        .post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonam-moura/choose-person`, body)
+        .then((response) => {
+          console.log(response.data)
+        })
+        getPeoples()
+    } else {
+        const body = {
+          id: people.id,
+          choice: false
+        }
+        axios
+          .post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonam-moura/choose-person`, body)
+          .then((response) => {
+            console.log(response.data)
+          })
+        getPeoples()
+      }
+  }
+
   return (
     <Container>
       <header>
-        <span>voltar</span>
+        <div></div>
         <img src={Logo}/>
         
         <Link to="/matchs">
-          <span>Matchs</span>
+          <img src={IconMatchs}/>
         </Link>
       </header>
 
-      <CardPeople
+
+      {people === false ? <div className="loading" ref={container}></div> : <CardPeople
         key={people.id}
         photo={people.photo}
         name={people.name}
         age={people.age}
         bio={people.bio}
-      />
+      />}
+      
 
       <ActionButtons>
-        <button id="deslike"><h3>X</h3></button>
-        <button id="like" ><h3>♥</h3></button>
+        <button onClick={() => choosePerson(false)} id="deslike"><h3>X</h3></button>
+        <button onClick={() => choosePerson(true)} id="like" ><h3>♥</h3></button>
       </ActionButtons>
     </Container>
   )

@@ -29,10 +29,9 @@ export default createGlobalStyle`
     border-bottom: solid 1px #c2c1be;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     position: relative;
-    padding: 0px 16px 0px 16px;
 
     img {
       width: 148px;

@@ -1,14 +1,30 @@
 import styled from "styled-components"
 
+
 export const Container = styled.div`
   width: 360px;
   height: 640px;
-  border: solid 1px black;
+  border: solid 1px #c2c1be;
   border-radius: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  header img:last-child {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    bottom: 20%;
+    margin-right: 8px;
+
+    :hover {
+      -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+  }
 `
 
 export const ActionButtons = styled.footer`
@@ -20,10 +36,8 @@ export const ActionButtons = styled.footer`
   margin-top: 10%;
 
   #like {
-        position: absoute;
-        bottom: 0px;
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
         background: transparent;
         color: green;
         border: solid 1px green;
@@ -41,8 +55,8 @@ export const ActionButtons = styled.footer`
         
     }
     #deslike {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
         background: transparent;
         color: red;
         border: solid 1px red;

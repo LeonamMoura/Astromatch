@@ -15,8 +15,8 @@ export const Container = styled.div`
     height: 30px;
     cursor: pointer;
     position: absolute;
-    right: 0px;
-    bottom: 20%;
+    top: 10px;
+    right: 10px;
     margin-right: 8px;
 
     :hover {

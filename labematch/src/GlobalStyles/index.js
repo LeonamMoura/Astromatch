@@ -16,10 +16,6 @@ export default createGlobalStyle`
     justify-content: center;
     align-items: center;
   }
-
-  body, input, button {
-    font:15px Arial, sans-serif;
-  }
   
   button {
     cursor:pointer;

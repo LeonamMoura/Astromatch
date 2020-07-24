@@ -5,26 +5,18 @@ import Logo from "../../Assets/Images/logo.png"
 import CardPeople from "../../Components/CardPeople";
 import {Link} from 'react-router-dom'
 import IconMatchs from '../../Assets/Icons/icon-match.svg'
-import lottie from 'lottie-web'
-import { renderIntoDocument } from "react-dom/test-utils";
+
 
 export default function HomePage() {
   const [people, setPeople] = useState({})
-  const container = useRef(null)
 
 
   useEffect(() => {
     getPeoples()
-
+    
   }, [])
 
-  lottie.loadAnimation({
-    container: container.current,
-    renderIntoDocument: 'svg',
-    loop: true,
-    autoplay: true,
-    animationData: require('../../Assets/Animations/loading.json')
-  })
+
 
   const getPeoples = () => {
     axios
@@ -72,15 +64,13 @@ export default function HomePage() {
         </Link>
       </header>
 
-
-      {people === false ? <div className="loading" ref={container}></div> : <CardPeople
+      <CardPeople
         key={people.id}
         photo={people.photo}
         name={people.name}
         age={people.age}
         bio={people.bio}
-      />}
-      
+      />
 
       <ActionButtons>
         <button onClick={() => choosePerson(false)} id="deslike"><h3>X</h3></button>

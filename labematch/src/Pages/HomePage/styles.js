@@ -9,6 +9,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 
   header img:last-child {
     width: 30px;
@@ -34,7 +35,8 @@ export const ActionButtons = styled.footer`
   align-items: center;
   justify-content: space-around;
   margin-top: 10%;
-
+  position: absolute;
+  bottom: 50px;
   #like {
         width: 70px;
         height: 70px;

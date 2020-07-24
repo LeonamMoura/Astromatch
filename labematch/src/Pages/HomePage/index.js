@@ -9,7 +9,7 @@ import IconMatchs from '../../Assets/Icons/icon-match.svg'
 
 export default function HomePage() {
   const [people, setPeople] = useState({})
-
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     getPeoples()
@@ -23,6 +23,7 @@ export default function HomePage() {
       .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonam-moura/person`)
       .then((response) => {
         setPeople(response.data.profile)
+        setIsLoading(false)
       })
   }
 
@@ -51,6 +52,7 @@ export default function HomePage() {
           })
         getPeoples()
       }
+      setIsLoading(true)
   }
 
   return (
@@ -64,13 +66,13 @@ export default function HomePage() {
         </Link>
       </header>
 
-      <CardPeople
+      {isLoading ? <div className="loading"></div> : <CardPeople
         key={people.id}
         photo={people.photo}
         name={people.name}
         age={people.age}
         bio={people.bio}
-      />
+      />}
 
       <ActionButtons>
         <button onClick={() => choosePerson(false)} id="deslike"><h3>X</h3></button>

@@ -3,9 +3,7 @@
 ## Stack
 Este é um projeto de front-end web feito utilizando React.js, CSS3, HTML5 e consumo de API;
 e como gerenciador de pacotes do Node.js o npm.
-Sobre a divisão dos arquivos, há dois grandes setores. Os `Components` são os componentes
-em si do meu projeto ()
-Já as `Pages` são as páginas em si e podem ser pensadas como a união dos componentes para se mostrar na tela.
+Sobre a divisão de arquivos, fiz a pasta `Pages` e dentro dela fiz uma outra pasta para cada página da aplicação!
 
 _______________________________________________________________________________________________________________
 
@@ -28,9 +26,12 @@ rodar:
 1. `npm run build` para gerar uma versão estática do projeto 
 (que ficará na pasta `build`)
 
+ou simplesmente acesse este link e verá funcionando: acceptable-action.surge.sh
+
 ## Contato
 Leonam Moura Viana
 dev.leonam@gmail.com
 (89) 9 9973-8742
 
 Sinta-se à vontade para me mandar um e-mail ou whatsapp se estiver interessado em discutir algo sobre este projeto.
+Críticas construtivas são sempre bem-vindas! Obrigado pela visita ao meu repo xD

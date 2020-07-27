@@ -8,6 +8,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: auto;
 
   header img:last-child {
     width: 30px;
@@ -24,6 +26,13 @@ export const Container = styled.div`
       transform: scale(0.8);
     }
   }
+
+  button {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+  }
+
 `
 
 export const Match = styled.div`

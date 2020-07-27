@@ -40,6 +40,7 @@ export default function HomePage() {
           console.log(response.data)
         })
         getPeoples()
+        setIsLoading(true)
     } else {
         const body = {
           id: people.id,
@@ -51,18 +52,19 @@ export default function HomePage() {
             console.log(response.data)
           })
         getPeoples()
+        setIsLoading(true)
       }
-      setIsLoading(true)
+      
   }
 
   return (
     <Container>
       <header>
-        <div></div>
-        <img src={Logo}/>
+        <div />
+        <img src={Logo} />
         
         <Link to="/matchs">
-          <img src={IconMatchs}/>
+          <img src={IconMatchs} />
         </Link>
       </header>
 
